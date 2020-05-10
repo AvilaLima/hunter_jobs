@@ -1,0 +1,26 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        email: Email
+        password: Senha
+        remember_me: Lembrar-me?
+        password_confirmation: Confirmação de senha
+  devise:
+    sessions:
+      new:
+        log_in: Entrar
+    registrations:
+      new:
+        sign_in: Cadastrar-me
+    shared:
+      links:
+        sign_up: Cadastrar-me
+        log_in: Entrar
+        forgot_pass: Esqueceu a senha?
+    passwords:
+      new:
+        send_me: Envie-me as instruções para trocar a senha

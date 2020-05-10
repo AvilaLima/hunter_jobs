@@ -1,0 +1,54 @@
+---
+pt-BR:
+  hello: 'Olá mundo'
+  activerecord:
+    models:
+      car_model: Modelo de Carro
+      carcategory: Categoria de Carro
+      customer: Cliente
+      manufacturer: Fabricante
+      rental: Locação
+      subsidiary: Filial
+      car: Carro
+      user: Usuário
+    attributes:
+      car_model:
+        name: Nome
+        year: Ano
+        motorization: Motor
+        fuel_type: Combustível
+        manufacturer: Fabricante
+        carcategory: Categoria
+        manufacturer_id: Fabricante
+        carcategory_id: Categoria
+      carcategory:
+        name: Nome
+        daily_rate: Diária
+        car_insurance: Seguro do carro
+        third_part_insurance: Seguro contra terceiros
+      customer:
+        name: Nome
+        document: Documento
+        email: Email
+      manufacturer:
+        name: Nome
+      rental:
+        start_date: Data de início
+        end_date: Data de término
+        customer_id: Cliente
+        carcategory_id: Categoria
+      subsidiary:
+        name: Nome
+        cnpj: CNPJ
+        address: Endereço
+      user:
+        email: Email
+        encrypted_password: Senha
+      car:
+        license_plate: Placa
+        color: Cor
+        car_model_id: Modelo de carro
+        mileage: Quilometragem
+        subsidiary_id: Filial
+        subsidiary: Filial
+        car_model: Modelo de carro

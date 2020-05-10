@@ -1,0 +1,10 @@
+rails db:drop db:create db:schema:load db:seed
+
+//Rodar simplecov
+require 'simplecov'
+SimpleCov.start 'rails'
+
+depois olhar pasta coverage e no index tem um relatório
+add_filter 'app/mailers' para fazer o coverage ignorar
+
+current_user.user? saber se está logado é user ou admin

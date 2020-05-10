@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>HunterJobs</title>
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,17 @@
   </head>
 
   <body>
+  <nav>
+  <% if user_signed_in? %>
+    <%= link_to 'Sair', destroy_user_session_path, method: :delete %> 
+  <%end%>
+  </nav>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
