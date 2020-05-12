@@ -12,6 +12,14 @@
       <%= p.label :name %>
       <%= p.text_field :name %>
     </li>
+
+    <li>
+      <div class="field">
+        <%= p.label :avatar, "Foto" %>
+        <%= p.file_field :avatar %>
+      </div>
+    </li>
+    
     <li>
       <%= p.label :social_name%>
       <%= p.text_field :social_name %>
@@ -19,7 +27,7 @@
 
     <li>
       <%= p.label :birth_date%>
-      <%= p.date_field :birth_date %>
+      <%= p.date_field("birth_date", min: Date.today) %>
     </li>
 
     <li>

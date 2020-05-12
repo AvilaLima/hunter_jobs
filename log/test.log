@@ -2043,3 +2043,639 @@ Processing by ProfilesController#create as HTML
 [Webpacker] Everything's up-to-date. Nothing to do
 Completed 200 OK in 22ms (Views: 13.9ms | ActiveRecord: 0.6ms | Allocations: 5011)
   [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles"[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "social_name" varchar, "birth_date" date, "formation" varchar, "summary" varchar, "experience" varchar, "favorite" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200512231016)[0m
+  [1m[35m (9.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200510204333),
+(20200512221604);
+
+[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-05-12 23:31:26.354877"], ["updated_at", "2020-05-12 23:31:26.354877"]]
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "46ed8b6be423e3bf514f2a8b83811b36f63c7551"], ["created_at", "2020-05-12 23:31:26.367371"], ["updated_at", "2020-05-12 23:31:26.367371"]]
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario1@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario1@teste.com.br"], ["encrypted_password", "$2a$04$5w2uGIEoGaf1LrQ7c6rObuZmnqGLiHG2YOUcjG4cp3/WgLIbqKmpu"], ["created_at", "2020-05-12 23:31:26.429733"], ["updated_at", "2020-05-12 23:31:26.429733"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3851)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.0ms | Allocations: 13616)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3175)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 14.7ms | ActiveRecord: 1.1ms | Allocations: 11970)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario2@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario2@teste.com.br"], ["encrypted_password", "$2a$04$mkX.iih55Zq5FVhv.baAZulUMPdKej7CbjhxNktZUx0oruYZE3O1G"], ["created_at", "2020-05-12 23:31:26.559020"], ["updated_at", "2020-05-12 23:31:26.559020"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2322)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1536)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 4028)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"John Doe Doe", "social_name"=>"John Doe", "birth_date"=>"24/07/1990", "formation"=>"Superior", "experience"=>"Tenho 10 anos de experiência em TI", "summary"=>"Uma descrição muito boa do meu perfil", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", "John Doe Doe"], ["LIMIT", 1]]
+  [1m[36mProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "social_name", "birth_date", "formation", "summary", "experience", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "John Doe Doe"], ["social_name", "John Doe"], ["birth_date", "1990-07-24"], ["formation", "Superior"], ["summary", "Uma descrição muito boa do meu perfil"], ["experience", "Tenho 10 anos de experiência em TI"], ["created_at", "2020-05-12 23:31:26.614421"], ["updated_at", "2020-05-12 23:31:26.614421"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/profiles/1
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 1748)
+Started GET "/profiles/1" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (Duration: 11.3ms | Allocations: 4523)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms | Allocations: 5588)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#new as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 205)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 648)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2392)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms | Allocations: 6273)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 968)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 3403)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario3@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario3@teste.com.br"], ["encrypted_password", "$2a$04$BpVgMSLeNJ7UnM.aY8ESK.G.w8SR2RFOgGbY2UPXhWre.EYoqtdbS"], ["created_at", "2020-05-12 23:31:26.711875"], ["updated_at", "2020-05-12 23:31:26.711875"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2331)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1553)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 4050)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"", "social_name"=>"", "birth_date"=>"", "formation"=>"", "experience"=>"", "summary"=>"", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1824)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 5302)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario4@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario4@teste.com.br"], ["encrypted_password", "$2a$04$eNNVxOpIKIf7grCGlBGY0.pQWOUAzydVcWjVJNhAmbIM2KvbjGIpm"], ["created_at", "2020-05-12 23:31:26.793913"], ["updated_at", "2020-05-12 23:31:26.793913"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 2318)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1536)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 4041)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"", "social_name"=>"", "birth_date"=>"", "formation"=>"", "experience"=>"", "summary"=>"", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1810)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 0.6ms | Allocations: 5214)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$ckfXG5WL1ahKYocQB4SurumVP35OZjtOAtun923C2X/4R.2iAw6Q."], ["created_at", "2020-05-12 23:31:26.882658"], ["updated_at", "2020-05-12 23:31:26.882658"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 967)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 3402)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 2259)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.1ms | Allocations: 2758)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 3382)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:26 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.2ms | Allocations: 577)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 969)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 3243)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$FROJ0/bmAdHVB2vOPu6fyOau0mHJJB923uXLnqxNfzRkNnLr36jwq"], ["created_at", "2020-05-12 23:31:27.011392"], ["updated_at", "2020-05-12 23:31:27.011392"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 3391)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 972)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 2738)
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 1303)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 286)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 966)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 3387)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 3398)
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 197)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 149)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1706)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 4806)
+Started POST "/users" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar-me"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$69chlcgq14qB/eACQpAZnurU9pqoaTowSl6vstqDf1n.acR/nrgpS"], ["created_at", "2020-05-12 23:31:27.168677"], ["updated_at", "2020-05-12 23:31:27.168677"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms | Allocations: 1817)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:31:27 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 2775)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario1@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario1@teste.com.br"], ["encrypted_password", "$2a$04$htE39JvVZPzI5tETOF61POrXCH2kZVmooY/EwDrr2x6XUnPeWoEBm"], ["created_at", "2020-05-12 23:36:26.362077"], ["updated_at", "2020-05-12 23:36:26.362077"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3851)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 34.7ms | ActiveRecord: 0.0ms | Allocations: 13636)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 3042)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 16.8ms | ActiveRecord: 1.4ms | Allocations: 11840)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario2@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario2@teste.com.br"], ["encrypted_password", "$2a$04$YKX1Z/65Eg/yMAFjJOT2QOwmIOR.wkTANJxylOnxWyqd9YChNukAq"], ["created_at", "2020-05-12 23:36:26.525275"], ["updated_at", "2020-05-12 23:36:26.525275"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 2322)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1430)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 3924)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"John Doe Doe", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x000055f48579a750 @tempfile=#<Tempfile:/tmp/RackMultipart20200512-17978-vfx6j3.jpg>, @original_filename="bozo.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"profile[avatar]\"; filename=\"bozo.jpg\"\r\nContent-Type: image/jpeg\r\nContent-Length: 38296\r\n">, "social_name"=>"John Doe", "birth_date"=>"24/07/1990", "formation"=>"Superior", "experience"=>"Tenho 10 anos de experiência em TI", "summary"=>"Uma descrição muito boa do meu perfil", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", "John Doe Doe"], ["LIMIT", 1]]
+  [1m[36mProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "profiles" ("name", "social_name", "birth_date", "formation", "summary", "experience", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "John Doe Doe"], ["social_name", "John Doe"], ["birth_date", "1990-07-24"], ["formation", "Superior"], ["summary", "Uma descrição muito boa do meu perfil"], ["experience", "Tenho 10 anos de experiência em TI"], ["created_at", "2020-05-12 23:36:26.617868"], ["updated_at", "2020-05-12 23:36:26.617868"]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "nota1kzpv18r88ucx0y0xpvkbz5b"], ["filename", "bozo.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 38296], ["checksum", "cN8Odd669RxbkCDwGU/eiw=="], ["created_at", "2020-05-12 23:36:26.684576"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "Profile"], ["record_id", 1], ["blob_id", 1], ["created_at", "2020-05-12 23:36:26.687421"]]
+  [1m[36mProfile Update (0.2ms)[0m  [1m[33mUPDATE "profiles" SET "updated_at" = ? WHERE "profiles"."id" = ?[0m  [["updated_at", "2020-05-12 23:36:26.689255"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.7ms) [0m[32mUploaded file to key: nota1kzpv18r88ucx0y0xpvkbz5b (checksum: cN8Odd669RxbkCDwGU/eiw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 40b8ac7a-e6af-451c-affd-50f538633976) to Async(active_storage_analysis) with arguments: #<GlobalID:0x000055f48365fae0 @uri=#<URI::GID gid://hunter-jobs/ActiveStorage::Blob/1>>
+Redirected to http://www.example.com/profiles/1
+Completed 302 Found in 85ms (ActiveRecord: 3.3ms | Allocations: 47664)
+Started GET "/profiles/1" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976] Performing ActiveStorage::AnalyzeJob (Job ID: 40b8ac7a-e6af-451c-affd-50f538633976) from Async(active_storage_analysis) enqueued at 2020-05-12T23:36:26Z with arguments: #<GlobalID:0x000055f4836d5e70 @uri=#<URI::GID gid://hunter-jobs/ActiveStorage::Blob/1>>
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976] [36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: nota1kzpv18r88ucx0y0xpvkbz5b[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976]   [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976]   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [40b8ac7a-e6af-451c-affd-50f538633976] Performed ActiveStorage::AnalyzeJob (Job ID: 40b8ac7a-e6af-451c-affd-50f538633976) from Async(active_storage_analysis) in 13.17ms
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Profile"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered profiles/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1381)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.4ms | ActiveRecord: 0.6ms | Allocations: 5389)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#new as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 203)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 648)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2393)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 6286)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 968)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 3399)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario3@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario3@teste.com.br"], ["encrypted_password", "$2a$04$TdTTp79E/fCOY8M9b9et3uRNNGMVb9u73dsfonX7xcW4xmiA/1Cva"], ["created_at", "2020-05-12 23:36:26.841334"], ["updated_at", "2020-05-12 23:36:26.841334"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2322)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1440)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 3940)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"", "social_name"=>"", "birth_date"=>"", "formation"=>"", "experience"=>"", "summary"=>"", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1723)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 8.8ms | ActiveRecord: 0.7ms | Allocations: 5210)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "usuario4@teste.com.br"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "usuario4@teste.com.br"], ["encrypted_password", "$2a$04$Sc02jbwro4iIJfkPnttnLu/4TXgBipBPwof9AsxXL4eNqXaCv58uq"], ["created_at", "2020-05-12 23:36:26.932216"], ["updated_at", "2020-05-12 23:36:26.932216"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2310)
+Started GET "/profiles/new" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1430)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 3915)
+Started POST "/profiles" for 127.0.0.1 at 2020-05-12 20:36:26 -0300
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"name"=>"", "social_name"=>"", "birth_date"=>"", "formation"=>"", "experience"=>"", "summary"=>"", "favorite"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mProfile Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "profiles" WHERE "profiles"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering profiles/new.html.erb within layouts/application
+  Rendered profiles/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1704)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 5111)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$MLDe8huo/J9XZQcOMvs6Fuxd4sxVkoJsjFyM0CrhR4VtIOcCUtB6i"], ["created_at", "2020-05-12 23:36:27.002430"], ["updated_at", "2020-05-12 23:36:27.002430"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 969)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 3403)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 2709)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 2732)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 3396)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 583)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 969)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 3243)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$VPLsTOLEygl5tpLBd26xDuSYyyA4ZTHySoGF2R5psGudCyc6g0i66"], ["created_at", "2020-05-12 23:36:27.131062"], ["updated_at", "2020-05-12 23:36:27.131062"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 3392)
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 979)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.1ms | Allocations: 2732)
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 1301)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 296)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3397)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 3389)
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 197)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 147)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1704)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 4812)
+Started POST "/users" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"teste@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Cadastrar-me"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "teste@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "teste@gmail.com"], ["encrypted_password", "$2a$04$dFjfhduKLMbZKtuuP3sSKe.PlaWkbkon50WF3gYoCogJJGHrCtSye"], ["created_at", "2020-05-12 23:36:27.297443"], ["updated_at", "2020-05-12 23:36:27.297443"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 10ms (ActiveRecord: 0.8ms | Allocations: 1831)
+Started GET "/" for 127.0.0.1 at 2020-05-12 20:36:27 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.1ms | Allocations: 2754)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m

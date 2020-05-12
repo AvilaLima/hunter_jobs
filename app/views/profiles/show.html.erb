@@ -1,6 +1,11 @@
 <h1><%= @profile.name %></h1>
 
+
+<p><strong>Foto do perfil:</strong>
+  <%= image_tag @profile.avatar %>
+</p>
 <p><%= @profile.social_name %></p>
+
 <p><%= l @profile.birth_date %></p>
 <p><%= @profile.formation %></p>
 <p><%= @profile.experience %></p>

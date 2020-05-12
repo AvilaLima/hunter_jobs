@@ -29,6 +29,7 @@ feature 'Candidate register profile' do
     fill_in 'Formação', with: 'Superior'
     fill_in 'Experiência', with: 'Tenho 10 anos de experiência em TI'
     fill_in 'Descrição', with: 'Uma descrição muito boa do meu perfil'
+    attach_file("Foto", Rails.root + "spec/features/bozo.jpg")
     click_on 'Enviar'
     
     expect(page).to have_content('John Doe Doe')
