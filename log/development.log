@@ -1942,3 +1942,781 @@ Processing by ProfilesController#new as HTML
 Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 0.2ms | Allocations: 7924)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20200516031427)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516031427"]]
+  [1m[35m (64.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateLevelJobs (20200516034931)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "level_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "level" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516034931"]]
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "summary" varchar, "qualification" varchar, "salary" varchar, "date_limit" varchar, "location" varchar, "level_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_32c7534ea2"
+FOREIGN KEY ("level_id")
+  REFERENCES "levels" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jobs_on_level_id" ON "jobs" ("level_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516193955"]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "jobs"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200516193955"]]
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "summary" varchar, "qualification" varchar, "salary" varchar, "date_limit" varchar, "location" varchar, "level_jobs_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_6c61a55eab"
+FOREIGN KEY ("level_jobs_id")
+  REFERENCES "level_jobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jobs_on_level_jobs_id" ON "jobs" ("level_jobs_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516193955"]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-05-16 17:17:22 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms | Allocations: 1042)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-16 17:17:23 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 652)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2875)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 22.2ms | ActiveRecord: 1.0ms | Allocations: 15717)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-16 17:17:24 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"eckG8uaVZHueDNzL6qA6tpQHoJzMdUWPWOILSVFpTFQbcA7uTiS94rxzxxts1E3cIwwTrxDnhnsuL2PVS0mENg==", "user"=>{"email"=>"lima@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "lima@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 156ms (ActiveRecord: 0.3ms | Allocations: 5102)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 17:17:25 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 6636)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-05-16 17:17:27 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AivmR0zXEKBC14Ep9qcgGF6LWqZnvlgvgcAmMjG8cJzy4+AaY+uODpg1d+8eZZLA906/cW8Bwy2SsmONbhOXyg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 2593)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 17:17:27 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-16 17:17:27 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 169)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1052)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4610)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "role" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2020-05-16 20:18:00.821956"], ["role", 5], ["id", 3]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-16 17:18:03 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yGFTGDkD7Cqu5v+4cTOUEw8tbY12wXLfERB9U94+J2LnCMIpcCImGEJcguF/v3eEg/6nCgNXqyeQNaTlXJ1tEg==", "user"=>{"email"=>"lima@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "lima@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 146ms (ActiveRecord: 0.2ms | Allocations: 2622)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 17:18:03 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.1ms | Allocations: 4985)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 17:18:04 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 942)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 7.3ms | ActiveRecord: 1.0ms | Allocations: 7983)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 17:18:46 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:6
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered jobs/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 7476)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:21:49 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 214)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 11.9ms | ActiveRecord: 0.7ms | Allocations: 16240)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:48:03 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.3ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 15.5ms | Allocations: 6484)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 30.1ms | ActiveRecord: 2.4ms | Allocations: 29103)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:49:33 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.3ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 4541)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 100ms (Views: 25.4ms | ActiveRecord: 18.5ms | Allocations: 21461)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:49:36 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1916)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.3ms | Allocations: 6666)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:49:57 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 4583)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 16.6ms | ActiveRecord: 2.6ms | Allocations: 21564)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.4ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Estagiário"], ["created_at", "2020-05-16 20:50:38.818075"], ["updated_at", "2020-05-16 20:50:38.818075"]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.3ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Junior"], ["created_at", "2020-05-16 20:50:38.832664"], ["updated_at", "2020-05-16 20:50:38.832664"]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.3ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Trainee"], ["created_at", "2020-05-16 20:50:38.846187"], ["updated_at", "2020-05-16 20:50:38.846187"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.3ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Pleno"], ["created_at", "2020-05-16 20:50:38.856880"], ["updated_at", "2020-05-16 20:50:38.856880"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.3ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Sênior"], ["created_at", "2020-05-16 20:50:38.867842"], ["updated_at", "2020-05-16 20:50:38.867842"]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mLevelJob Create (0.3ms)[0m  [1m[32mINSERT INTO "level_jobs" ("level", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["level", "Diretor"], ["created_at", "2020-05-16 20:50:38.880549"], ["updated_at", "2020-05-16 20:50:38.880549"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mLevelJob Load (0.3ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:51:36 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 18.2ms | Allocations: 8237)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 34.0ms | ActiveRecord: 2.5ms | Allocations: 31128)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 17:51:37 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:33
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2106)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.3ms | Allocations: 6879)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 18:01:03 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 6755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 22.9ms | ActiveRecord: 0.5ms | Allocations: 23977)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:01:22 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"yuQdJMDq43eFISOZIjFdLZ1fkjS0/G49Mqfl1IsBXXK52aTqz0/9arYQS/Olv8g/uPd44sTmOp/mySdS+9n9mw==", "job"=>{"title"=>"teste", "summary"=>"teste da descrição", "qualification"=>"as", "salary"=>"4000", "date_limit"=>"2020-05-15", "level_jobs_id"=>"3", "location"=>"Rio"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[31mUnpermitted parameter: :salary[0m
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2575)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 11.0ms | ActiveRecord: 0.4ms | Allocations: 9911)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:01:28 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"JWRzupQ6VXrhyPIWeiL4y6+OAtBP8hm7fKXwr1FbhB1WWcp0m59LZ9L5mnz9rG3ZiiboBj/oTRmoyzIpIYMk9A==", "job"=>{"title"=>"teste", "summary"=>"teste da descrição", "qualification"=>"as", "salary"=>"4000", "date_limit"=>"", "level_jobs_id"=>"3", "location"=>"Rio"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[31mUnpermitted parameter: :salary[0m
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2679)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 8887)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:01:41 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"dhVpJavoiNvnTdm+ez/7wGdM9SsnBGx9gMUQf7uvUGIFKNDrpE2WxtR8sdT8sW7SQuQf/VceON9Uq9L5y3fwiw==", "job"=>{"title"=>"teste", "summary"=>"teste da descrição", "qualification"=>"as", "salary"=>"4000", "date_limit"=>"2020-05-21", "level_jobs_id"=>"3", "location"=>"Rio"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[31mUnpermitted parameter: :salary[0m
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2549)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 8458)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:12:34 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"4uT+3c53mgizMZeUrFRZaXLFI0lJvle1l2mVjAJV9pOR2UcTwdKEFYAA//4r2sx7V23JnzmkAxdDB1cKco1Weg==", "job"=>{"title"=>"teste", "summary"=>"teste da descrição", "qualification"=>"as", "salary"=>"sdadada", "date_limit"=>"2020-05-27", "level_jobs_id"=>"3", "location"=>"Rio"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[31mUnpermitted parameter: :salary[0m
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 18:13:04 -0300
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.4ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 4966)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30101ms (Views: 26.1ms | ActiveRecord: 0.6ms | Allocations: 87962)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 10.0ms | ActiveRecord: 2.6ms | Allocations: 13117)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 18:13:13 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 8332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 30.3ms | ActiveRecord: 2.4ms | Allocations: 31490)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:13:30 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"aT0tjqD4YqMf8zlk0noVeX3GQgPuGAmdJQmImlifuPIaAJRAr118vizCUQ5V9IBrWG6o1Z4CXT/xZ0ocKEcYGw==", "job"=>{"title"=>"teste", "summary"=>"teste da descrição", "qualification"=>"as", "salary"=>"4000", "date_limit"=>"2020-05-29", "level_jobs_id"=>"3", "location"=>"da"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2480)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20008ms (Views: 11.9ms | ActiveRecord: 0.3ms | Allocations: 59604)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 18:14:14 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 6561)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 18:14:15 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 882)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 6400)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 18:44:55 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 4603)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 18.0ms | ActiveRecord: 0.5ms | Allocations: 22006)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:45:04 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"axrsvdf86Q56v974iSanNZuLMtaBGpSMuh1E/z0D+aTDLPR+bA5V/AOUkKxYeVwREzmfOpFcb+lHSnmYs/lH9w==", "job"=>{"title"=>"fsd", "summary"=>"fds", "qualification"=>"fsd", "salary"=>"4000", "date_limit"=>"2020-05-26", "level_jobs_id"=>"2", "location"=>"da"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2357)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 10.1ms | ActiveRecord: 0.3ms | Allocations: 8555)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:45:07 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"SvCj5KrOTTuYaqbuFFCewRpUzQj2W0MIp9GZ13jEVPs5zRoqpWtTJqtbzoST3gvTP/wn3oZBF6pzv1tRCBz0Eg==", "job"=>{"title"=>"fsd", "summary"=>"fds", "qualification"=>"fsd", "salary"=>"4000", "date_limit"=>"", "level_jobs_id"=>"2", "location"=>"da"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2482)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 8457)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:45:11 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"QgwkteBSaZscHJrqadNMVxnUtmjGltDaTjNjnpuOcMgxMZ177/d3hi8t8oDuXdlFPHxcvraMhHiaXaEY61bQIQ==", "job"=>{"title"=>"fsd", "summary"=>"fds", "qualification"=>"fsd", "salary"=>"4000", "date_limit"=>"2020-05-20", "level_jobs_id"=>"2", "location"=>"da"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2348)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 7990)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 18:45:13 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 396)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 5747)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 18:45:15 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 13.8ms | ActiveRecord: 0.5ms | Allocations: 6363)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 18:45:17 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2161)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.2ms | Allocations: 6912)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 18:45:28 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"VVP6iUkwB6bj5ktop2/jXWaWzWviA/6PSJqc9zOnkOP9ZeJK8sK7VJrNBTx2MBh57iRgh/JFBeq1zaGQvV0usA==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"", "level_jobs_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3020)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 19.9ms | ActiveRecord: 0.3ms | Allocations: 10345)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "jobs"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200516193955"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "summary" varchar, "qualification" varchar, "salary" varchar, "date_limit" varchar, "location" varchar, "level_job_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4dfe05deea"
+FOREIGN KEY ("level_job_id")
+  REFERENCES "level_jobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_jobs_on_level_job_id" ON "jobs" ("level_job_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516193955"]]
+  [1m[35m (9.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "jobs"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20200516193955"]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJobs (20200516193955)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "summary" varchar, "qualification" varchar, "salary" varchar, "date_limit" date, "location" varchar, "level_job_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4dfe05deea"
+FOREIGN KEY ("level_job_id")
+  REFERENCES "level_jobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_jobs_on_level_job_id" ON "jobs" ("level_job_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200516193955"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 19:17:20 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 879)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 10.7ms | ActiveRecord: 0.5ms | Allocations: 13415)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:17:22 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 6668)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 16.4ms | ActiveRecord: 0.3ms | Allocations: 17011)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:17:25 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"mknIgE8oGNWIuomdHsvFrpDKIPEfy4F9kdPbUtzcfcUyf9BD9NqkJ/GRx8nPlD6KGHiNHQ+NehhshOY1UibDlg==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"2020-05-15", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2342)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'level_job_id' for Job.):
+  
+app/controllers/jobs_controller.rb:16:in `create'
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:17:43 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 8476)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 25.8ms | ActiveRecord: 2.1ms | Allocations: 31548)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:17:45 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2163)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 6924)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:17:46 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 6928)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:17:50 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"tpudaw9J+Cqk/zjS+bZIZSrIlRH/uG5Vd8G3J9/l+0XFpiSlAOzmN5fOULh+ON13D2B/x4+iOvejr3Whrz1brA==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"2020-05-15", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" WHERE "level_jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2900)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 15.0ms | ActiveRecord: 0.5ms | Allocations: 14139)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:24:44 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"b1dVjGJQOMMDvGWPDbVJQUlLFrCPFd+5rZcKK0rFuiscauxCbfUm3jCNDeWKO9xTbOP8Zv8Pixt5+citOh0awg==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"2020-05-15", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" WHERE "level_jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.2ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2921)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 26365)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:24:48 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"fkCPOWr4xKrcJKtlxCI6a496LxKePtvnMejSS8jBdtcNfTb3ZV3at+8Vww9DrK95qtLFxO4kj0XlhhDNuBnWPg==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"2020-05-13", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" WHERE "level_jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2880)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 12065)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:24:52 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"LkG08LCwxMFLf0nqMwj4gsINC6ibwd99Jp/ouZ4p+b1dfA0+vxXa3HhOIYC0hm2Q56Xhfuvbi9/y8So/7vFZVA==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"2020-05-12", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" WHERE "level_jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2880)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 8.7ms | ActiveRecord: 0.5ms | Allocations: 12063)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 19:25:29 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 886)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 7520)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:25:31 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  Rendered jobs/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4347)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 6360)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. "<input type=\"date\" name=\"job[date_limit]\" id=\"job_date_limit\" />" given.):
+    30: 
+    31:     <li>
+    32:       <%= j.label :date_limit%>
+    33:       <%= l j.date_field :date_limit %>
+    34:     </li>
+    35: 
+    36:     <li>      
+  
+app/views/jobs/new.html.erb:33
+app/views/jobs/new.html.erb:9
+Started GET "/jobs" for 127.0.0.1 at 2020-05-16 19:26:41 -0300
+Processing by JobsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/controllers/jobs_controller.rb:4:in `index'
+  Rendering jobs/index.html.erb within layouts/application
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" IS NULL[0m
+  ↳ app/views/jobs/index.html.erb:8
+  Rendered jobs/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 846)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.4ms | Allocations: 7536)
+
+
+Started GET "/jobs/new" for 127.0.0.1 at 2020-05-16 19:26:42 -0300
+Processing by JobsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2656)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 7584)
+
+
+Started POST "/jobs" for 127.0.0.1 at 2020-05-16 19:27:36 -0300
+Processing by JobsController#create as HTML
+  Parameters: {"authenticity_token"=>"zMkBqFrnYqFHGxtYk23q55DriHZoQXyT3umd1YvhNypk/xlr4RXeUz4wVQxCMhHDGFklmngHh/YjvqCyBRuJeQ==", "job"=>{"title"=>"", "summary"=>"", "qualification"=>"", "salary"=>"", "date_limit"=>"", "level_job_id"=>"1", "location"=>""}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs" WHERE "level_jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/jobs_controller.rb:17:in `create'
+  Rendering jobs/new.html.erb within layouts/application
+  [1m[36mLevelJob Load (0.1ms)[0m  [1m[34mSELECT "level_jobs".* FROM "level_jobs"[0m
+  ↳ app/views/jobs/new.html.erb:38
+  Rendered jobs/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2873)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 12355)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-05-16 20:04:51 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"g+XLXH+VJZDb8tR+MUWx3fqchvBJwsiTOOI0KIMZDgrw2HKScDA7jejDvBS2yyTP3zRsJjnYnDHsjPau88Gu4w=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 7425)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-16 20:04:51 -0300
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 356)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-16 20:04:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 648)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2649)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 7995)
+
+

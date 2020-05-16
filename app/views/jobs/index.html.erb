@@ -1,0 +1,13 @@
+<h1>Vagas</h1>
+
+<%= link_to 'Cadastrar Nova Vaga', new_job_path %>
+<div class="notice">
+  <%= notice %>
+</div>
+<ul>
+    <% @jobs.each do |j|%>
+        <li><%= link_to "#{j.name}: #{j.limit_date}", j %></li>
+    <%end%> 
+</ul>
+
+<%= link_to 'Voltar', root_path %>

@@ -13,8 +13,14 @@
   <body>
   <nav>
   <% if user_signed_in? %>
-    <%= link_to 'Meu Perfil', new_profile_path %> 
-    <%= link_to 'Sair', destroy_user_session_path, method: :delete %> 
+    <% if current_user.candidate? %>
+      <%= link_to 'Meu Perfil', new_profile_path %> 
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+    <%end%> 
+    <% if current_user.headhunter? %>
+      <%= link_to 'Minhas Vagas', jobs_path %> 
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+    <%end%>
   <%end%>
   </nav>
     <% if notice %>

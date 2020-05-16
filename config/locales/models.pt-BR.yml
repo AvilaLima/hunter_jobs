@@ -4,6 +4,8 @@ pt-BR:
   activerecord:
     models:
       profile: Perfil
+      level_job: Nível da Vaga
+      job: Vaga
     attributes:
       profile:
         name: Nome Completo
@@ -13,3 +15,13 @@ pt-BR:
         summary: Descrição
         experience: Experiência
         favorite: Favorito
+      level_job:
+        level: Nível
+      job:
+        title: Título
+        summary: Descrição
+        qualification: Habilidades
+        salary: Salário
+        date_limit: Data Limite
+        location: Local
+        level_job_id: Nível

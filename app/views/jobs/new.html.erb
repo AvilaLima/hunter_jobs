@@ -1,0 +1,49 @@
+<h1>Minha Vaga</h1>
+<% if @job.errors.any? %>
+  <ul>
+    <% @job.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @job, local: true do |j|%>
+  <ul>
+    <li>
+      <%= j.label :title %>
+      <%= j.text_field :title %>
+    </li>
+    
+    <li>
+      <%= j.label :summary %>
+      <%= j.text_field :summary %>
+    </li>
+    
+    <li>
+      <%= j.label :qualification %>
+      <%= j.text_field :qualification %>
+    </li>
+
+    <li>
+      <%= j.label :salary %>
+      <%= j.text_field :salary %>
+    </li>
+
+    <li>
+      <%= j.label :date_limit%>
+      <%= j.date_field :date_limit %>
+    </li>
+
+    <li>      
+      <%= j.label :level_job_id, 'Nível' %>
+      <%= j.collection_select :level_job_id, @level_jobs, :id, :level%>
+    </li>
+    <li>
+      <%= j.label :location %>
+      <%= j.text_field :location %>
+    </li>
+
+    <%= j.submit 'Enviar' %>
+
+  </ul>
+<%end%>
+<%= link_to 'Voltar', root_path %>

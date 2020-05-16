@@ -1,17 +1,11 @@
-=begin
 FactoryBot.define do
   factory :job do
-    title { 'Vaga de emprego'}
-    level { 'Trainee'}
-    qualification { ''}
-    salary {'4000-5000'}
-    end_date { Date.today}
-    location { 'São Paulo'}
-  end
-  #no teste colocar factory = create(:job)
-  #no teste colocar factory = create(:job, title: 'Meu título')
-  factory :profile do
-    sequence(:name) {|n| "Perfil#{n}"}
+    title { "Título da Vaga" }
+    summary { "Resumo da Vaga" }
+    qualification { "Habilidade da Vaga" }
+    salary { "até R$ 4000" }
+    date_limit { "19/09/2099" }
+    location { "São Paulo" }
+    level { "Trainee" }
   end
 end
-=end
