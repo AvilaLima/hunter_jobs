@@ -1,12 +1,10 @@
 <h1>Vagas</h1>
-
-<%= link_to 'Cadastrar Nova Vaga', new_job_path %>
-<div class="notice">
-  <%= notice %>
-</div>
+<% if current_user.headhunter? %>
+  <%= link_to 'Cadastrar Nova Vaga', new_job_path %>
+<% end %>
 <ul>
     <% @jobs.each do |j|%>
-        <li><%= link_to "#{j.name}: #{j.limit_date}", j %></li>
+        <li><%= link_to "#{j.title}", j , id: "details-#{j.id}"%></li>
     <%end%> 
 </ul>
 

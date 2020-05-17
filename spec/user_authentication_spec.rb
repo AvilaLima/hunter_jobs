@@ -1,13 +1,32 @@
 require 'rails_helper'
 
-feature 'User authentication' do
-  scenario 'successfully' do
-    user = User.create!(email: 'teste@gmail.com', password: '12345678')
-
+feature 'User authentication ' do
+  scenario 'successfully like candidate' do
+    user = create(:user)
+    profile = create(:profile)
     visit root_path
 
-    fill_in 'Email', with: 'teste@gmail.com'
-    fill_in 'Senha', with: '12345678'
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
+    within 'form' do
+      click_on 'Entrar'  
+    end
+    
+    expect(page).to have_content('Login efetuado com sucesso!')
+    expect(page).to have_link('Sair')
+
+    expect(page).not_to have_link('Entrar')
+    expect(current_path).to eq(new_profile_path)
+
+  end
+
+  scenario 'successfully like headhunter' do
+    user = create(:user, role:5)
+    profile = create(:profile)
+    visit root_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Senha', with: user.password
     within 'form' do
       click_on 'Entrar'  
     end
@@ -35,7 +54,7 @@ feature 'User authentication' do
 
   context 'log out' do
     scenario 'successfully' do
-      user = User.create!(email: 'teste@gmail.com', password: '12345678')
+      user = create(:user)
 
       visit root_path
 

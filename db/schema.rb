@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_193955) do
+ActiveRecord::Schema.define(version: 2020_05_17_000238) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_193955) do
     t.integer "level_job_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
     t.index ["level_job_id"], name: "index_jobs_on_level_job_id"
   end
 
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_193955) do
     t.integer "favorite"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
   end
 
   create_table "users", force: :cascade do |t|

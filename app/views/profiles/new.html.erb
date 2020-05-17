@@ -8,16 +8,26 @@
 <% end %>
 <%= form_with model: @profile, local: true do |p|%>
   <ul>
+
+    <li>
+      <%= p.label :email %>
+      <%= p.text_field :email, disabled:true %>
+    </li>
+
     <li>
       <%= p.label :name %>
       <%= p.text_field :name %>
     </li>
-
+    
     <li>
-      <div class="field">
-        <%= p.label :avatar, "Foto" %>
-        <%= p.file_field :avatar %>
-      </div>
+      <% if @profile.avatar.present? %>
+        <%= image_tag @profile.avatar %>
+      <% else %>
+        <div class="field">
+          <%= p.label :avatar, "Foto" %>
+          <%= p.file_field :avatar %>
+        </div>
+      <% end %>
     </li>
     
     <li>
@@ -45,10 +55,6 @@
       <%= p.text_area :summary %>
     </li>
 
-    <li>
-      <%= p.label :favorite%>
-      <%= p.text_field :favorite %>
-     </li>
     <%= p.submit 'Enviar' %>
 
   </ul>

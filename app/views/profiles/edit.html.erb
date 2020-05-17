@@ -1,0 +1,59 @@
+<h1>Editando o meu Perfil <%= @profile.name %></h1>
+
+<% @profile.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<%end%>
+<%= form_with model: @profile, local: true do |p|%>
+  <ul>
+
+    <li>
+      <%= p.label :email %>
+      <%= p.text_field :email, disabled:true %>
+    </li>
+
+    <li>
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </li>
+
+    <li>
+      <% if @profile.avatar.present? %>
+        <%= image_tag @profile.avatar %>
+      <% else %>
+        <div class="field">
+          <%= p.label :avatar, "Foto" %>
+          <%= p.file_field :avatar %>
+        </div>
+      <% end %>
+    </li>
+    
+    <li>
+      <%= p.label :social_name%>
+      <%= p.text_field :social_name %>
+    </li>
+
+    <li>
+      <%= p.label :birth_date%>
+      <%= p.date_field("birth_date", min: Date.today) %>
+    </li>
+
+    <li>
+      <%= p.label :formation%>
+      <%= p.text_field :formation %>
+    </li>
+
+    <li>
+      <%= p.label :experience%>
+      <%= p.text_field :experience %>
+    </li>
+
+    <li>
+      <%= p.label :summary%>
+      <%= p.text_area :summary %>
+    </li>
+
+    <%= p.submit 'Enviar' %>
+
+  </ul>
+<%end%>
+<%= link_to 'Voltar', root_path %>

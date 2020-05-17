@@ -15,6 +15,7 @@
   <% if user_signed_in? %>
     <% if current_user.candidate? %>
       <%= link_to 'Meu Perfil', new_profile_path %> 
+      <%= link_to 'Vagas', jobs_path %> 
       <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
     <%end%> 
     <% if current_user.headhunter? %>

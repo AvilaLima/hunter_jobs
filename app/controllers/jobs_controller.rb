@@ -1,9 +1,26 @@
 class JobsController < ApplicationController
+
   def index
-    @jobs = Job.where(id:params[:id])
-    if @jobs.count == 0
-      flash[:notice] = 'Nenhuma vaga cadastrada'
-      render :index
+    if current_user.candidate?
+      @profile = Profile.find_by(email: current_user.email)  
+      if @profile.social_name.blank? || @profile.formation.blank? || 
+        @profile.summary.blank? || @profile.experience.blank? 
+			  flash[:notice] = 'Por favor finalize seu perfil para utilizar o sistema'
+        redirect_to edit_profile_path(@profile)
+      else
+        @profile = Profile.find_by(email: current_user.email)
+        @jobs = Job.where("DATE(date_limit) >= ?", Date.today)    
+        if @jobs.count == 0
+          flash[:notice] = 'Nenhuma vaga cadastrada'
+          render :index
+        end
+      end
+    else     
+      @jobs = Job.where(email: current_user.email)
+      if @jobs.count == 0
+        flash[:notice] = 'Nenhuma vaga cadastrada'
+        render :index
+      end
     end
   end
 
@@ -14,6 +31,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_model_params)
+    @job.email = current_user.email
     if @job.save
 			redirect_to @job
 		else
