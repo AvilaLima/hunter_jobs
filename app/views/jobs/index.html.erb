@@ -2,9 +2,17 @@
 <% if current_user.headhunter? %>
   <%= link_to 'Cadastrar Nova Vaga', new_job_path %>
 <% end %>
+<%= form_with url: search_jobs_path, method: :get do |s| %>
+  <%= s.label :q, 'Busca' %>
+  <%= s.search_field :q %>
+  <%= s.submit 'Buscar' %>
+<% end %>
 <ul>
     <% @jobs.each do |j|%>
         <li><%= link_to "#{j.title}", j , id: "details-#{j.id}"%></li>
+        <ul>
+          <li><%= j.summary %></li>
+        </ul>
     <%end%> 
 </ul>
 

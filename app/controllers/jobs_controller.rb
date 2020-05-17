@@ -24,6 +24,16 @@ class JobsController < ApplicationController
     end
   end
 
+  def search    
+    @busca = params[:q]
+    @jobs = Job.search(@busca)
+    if @jobs.blank? || @busca.blank?
+      @jobs = Job.all
+      flash[:notice]  = "Nenhum resultado para: #{@busca}"
+    end
+    render :index
+  end
+
   def new
     @job = Job.new
     @level_jobs = LevelJob.all

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :profiles, only: %i[index show new create edit update]
-  resources :jobs, only: %i[index show new create edit update]
+  resources :jobs, only: %i[index show new create edit update]do
+    get 'search', on: :collection    
+  end
 end

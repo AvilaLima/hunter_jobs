@@ -4,6 +4,11 @@ class Job < ApplicationRecord
             presence: true
   validate :date_limit_must_be_valid
 
+
+
+  scope :search, -> (query){where('title LIKE ?', "%#{query}%")
+                              .or(where(title: query))
+                              .or(where('summary LIKE ?', "%#{query}%")) }
   private
 
   def date_limit_must_be_valid
