@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_000238) do
+ActiveRecord::Schema.define(version: 2020_05_17_223749) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 2020_05_17_000238) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "apply_jobs", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.string "cover_letter"
+    t.string "feedback_headhunter"
+    t.integer "profile_id", null: false
+    t.integer "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_apply_jobs_on_job_id"
+    t.index ["profile_id"], name: "index_apply_jobs_on_profile_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -80,5 +92,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_000238) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "apply_jobs", "jobs"
+  add_foreign_key "apply_jobs", "profiles"
   add_foreign_key "jobs", "level_jobs"
 end

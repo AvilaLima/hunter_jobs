@@ -9,7 +9,8 @@ class JobsController < ApplicationController
         redirect_to edit_profile_path(@profile)
       else
         @profile = Profile.find_by(email: current_user.email)
-        @jobs = Job.where("DATE(date_limit) >= ?", Date.today)    
+        @jobs = Job.where("DATE(date_limit) >= ?", Date.today)  
+        byebug  
         if @jobs.count == 0
           flash[:notice] = 'Nenhuma vaga cadastrada'
           render :index

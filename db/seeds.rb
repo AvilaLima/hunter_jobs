@@ -15,7 +15,7 @@ trainee= LevelJob.create([{ level: 'Estagiário' }, { level: 'Junior' },
 job_headhunter=Job.create(title: 'Título da vaga', summary: 'Resumo da vaga', 
           qualification: 'Habilidades da vaga', salary: 'Até R$4000', 
           date_limit: '25/07/2020', location: 'São Paulo', 
-          level_job: trainee[2], email:headhunter.email)
+          level_job: LevelJob.find(3), email:headhunter.email)
 
 profile_candidate = Profile.new(name: 'John Doe Doe',   
                     social_name:'Doe John',
@@ -25,3 +25,8 @@ profile_candidate = Profile.new(name: 'John Doe Doe',
                     experience: 'A minha experiência é...',
                     favorite: 0,
                     email: candidate.email)
+
+apply_job= ApplyJob.create(job: job_headhunter, profile:profile_candidate,
+                            cover_letter:'Carta de apresentação',
+                            feedback_headhunter: 'Feedback do hunter')
+                

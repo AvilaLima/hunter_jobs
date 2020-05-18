@@ -6,6 +6,7 @@ pt-BR:
       profile: Perfil
       level_job: Nível da Vaga
       job: Vaga
+      apply_job: Candidatar-se
     attributes:
       profile:
         name: Nome Completo
@@ -25,3 +26,9 @@ pt-BR:
         date_limit: Data Limite
         location: Local
         level_job_id: Nível
+      apply_job:
+        cover_letter: Carta de Apresentação
+        feedback_hunter: Feedback
+        apply_job/status:
+          open: Em aberto
+          closed: Encerrada

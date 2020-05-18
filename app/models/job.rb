@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :level_job
+  has_many :apply_jobs
   validates :title, :summary,  :qualification,:salary,:location, :date_limit, 
             presence: true
   validate :date_limit_must_be_valid

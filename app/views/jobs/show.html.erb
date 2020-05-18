@@ -1,3 +1,6 @@
 <h1>Detalhes da Vaga</h1>
 <%= render @job %>
+<% if current_user.candidate? %>
+  <%= link_to 'Candidatar-se', new_job_apply_job_path(@job) %>
+<% end %>
 <%= link_to 'Voltar', jobs_path %>
