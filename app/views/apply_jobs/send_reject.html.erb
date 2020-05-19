@@ -5,7 +5,7 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_with model: [@job,@apply_job], url: reject_job_apply_jobs_path,
+<%= form_with model: [@job,@apply_job], url: send_reject_job_apply_job_path,
  local: true do |f| %>
   <%= f.label :feedback_headhunter %>
   <%= f.text_field :feedback_headhunter %>

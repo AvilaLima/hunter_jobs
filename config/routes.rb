@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users
 
-  resources :profiles, only: %i[index show new create edit update] 
+  resources :profiles, only: %i[index show new create edit update] do
+    get 'favorite', on: :member
+  end
   
   resources :jobs, only: %i[index show new create] do
     get 'search', on: :collection
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     get 'close', on: :member
     resources :apply_jobs, only: %i[new create] do
       get 'send_reject', on: :member      
-      post 'reject', on: :member      
+      post 'reject', on: :collection      
     end
   end
 

@@ -8,7 +8,6 @@ class JobsController < ApplicationController
 			  flash[:notice] = 'Por favor finalize seu perfil para utilizar o sistema'
         redirect_to edit_profile_path(@profile)
       else
-        @profile = Profile.find_by(email: current_user.email)
         @jobs = Job.where("DATE(date_limit) >= ?", Date.today).where(status:0)
         if @jobs.count == 0
           flash[:notice] = 'Nenhuma vaga cadastrada'
@@ -60,7 +59,8 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     if current_user.headhunter?
-      @profiles = @job.profiles
+      @applyjobs = ApplyJob.where(job_id:params[:id])
+      @profiles = @job.profiles      
     end  
   end
 

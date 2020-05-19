@@ -6,14 +6,19 @@
   <ul>
       <% @job.profiles.each do |p|%>
         <li>
-          <%= link_to "#{p.name}", profile_path(p) , id:"details-#{p.id}"%>
+          <%= link_to "#{p.name}", profile_path(p) , id:"details-#{p.id}"%> |           
+            <% if p.favorite? %>
+              Favorito
+              <%= link_to "Desfavoritar", favorite_profile_path(p), id:"unmakefav-#{p.id}"%>
+            <% else %>
+              <%= link_to "Favoritar", favorite_profile_path(p), id:"makefav-#{p.id}"%>
+            <% end %>
         </li>
         <ul>
           <li>
-            <%= link_to 'Rejeitar Candidato', send_reject_job_apply_job_path(@job)  %>
+            <%= link_to 'Rejeitar Candidato', send_reject_job_apply_job_path([@job,p])  %>
           </li>
-          <ul>            
-            <li><%= p.favorite %></li>
+          <ul>           
           </ul>
         </ul>
       <%end%> 

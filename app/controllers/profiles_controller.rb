@@ -6,6 +6,17 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+  def favorite 
+    @profile = Profile.find(params[:id])
+    if @profile.favorite==1
+      @profile.favorite=0
+    else
+      @profile.favorite=1
+    end
+    @profile.save
+    redirect_to jobs_path
+  end
+
   def new
     if Profile.exists?(email: current_user.email)
       @profile = Profile.find_by(email: current_user.email)      
