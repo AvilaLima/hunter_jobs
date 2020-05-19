@@ -13,6 +13,13 @@
         <ul>
           <li><%= j.summary %></li>
         </ul>
+        <% if j.open? %>
+        <ul>
+          <li><%= link_to "Encerrar #{j.title}", close_job_path(j) %></li>
+        </ul>
+        <% else %>
+            <li>Encerrada</li>
+        <% end %>
     <%end%> 
 </ul>
 

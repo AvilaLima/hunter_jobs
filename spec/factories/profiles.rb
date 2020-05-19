@@ -8,5 +8,9 @@ FactoryBot.define do
     experience { "MyString" }
     favorite { 1 }
     email { "teste@teste.com.br"}
+    trait :with_avatar do
+      avatar { fixture_file_upload(
+        Rails.root.join('spec', 'support', 'assets', 'cat.png'), 'image/png') }
+    end
   end
 end

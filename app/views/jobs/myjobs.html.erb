@@ -1,0 +1,8 @@
+<ul>
+    <% @jobs.each do |j|%>
+        <li><%= link_to "#{j.title}", j , id: "details-#{j.id}"%></li>
+        <ul>
+          <li><%= j.summary %></li>
+        </ul>
+    <%end%> 
+</ul>

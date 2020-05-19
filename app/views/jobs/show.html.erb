@@ -2,5 +2,21 @@
 <%= render @job %>
 <% if current_user.candidate? %>
   <%= link_to 'Candidatar-se', new_job_apply_job_path(@job) %>
+<% else %>
+  <ul>
+      <% @job.profiles.each do |p|%>
+        <li>
+          <%= link_to "#{p.name}", profile_path(p) , id:"details-#{p.id}"%>
+        </li>
+        <ul>
+          <li>
+            <%= link_to 'Rejeitar Candidato', send_reject_job_apply_job_path(@job)  %>
+          </li>
+          <ul>            
+            <li><%= p.favorite %></li>
+          </ul>
+        </ul>
+      <%end%> 
+  </ul>
 <% end %>
 <%= link_to 'Voltar', jobs_path %>

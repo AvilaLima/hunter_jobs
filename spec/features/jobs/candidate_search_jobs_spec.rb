@@ -5,7 +5,7 @@ feature 'Candidate search job by title' do
     job = create(:job, title:'Analista de Suporte')
     another_job = create(:job, title:'Analista de Redes')
 
-    user = create(:user)
+    user = create(:user,role:0)
     profile = create(:profile,email: user.email)
     login_as user, scope: :user
     

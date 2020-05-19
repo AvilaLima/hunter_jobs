@@ -9,8 +9,7 @@ class JobsController < ApplicationController
         redirect_to edit_profile_path(@profile)
       else
         @profile = Profile.find_by(email: current_user.email)
-        @jobs = Job.where("DATE(date_limit) >= ?", Date.today)  
-        byebug  
+        @jobs = Job.where("DATE(date_limit) >= ?", Date.today).where(status:0)
         if @jobs.count == 0
           flash[:notice] = 'Nenhuma vaga cadastrada'
           render :index
@@ -23,6 +22,13 @@ class JobsController < ApplicationController
         render :index
       end
     end
+  end
+
+  def close
+    @job = Job.find(params[:id])
+    @job.closed!
+    @job.save
+    redirect_to jobs_path
   end
 
   def search    
@@ -53,6 +59,14 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    if current_user.headhunter?
+      @profiles = @job.profiles
+    end  
+  end
+
+  def myjobs
+    @profile = Profile.find_by(email: current_user.email)
+    @jobs = @profile.jobs
   end
 
   private

@@ -4,5 +4,6 @@ class ApplyJob < ApplicationRecord
 
   validates :cover_letter, presence: true
 
-  enum status: {open:0, closed: 5}
+  enum status: {pending:0, denied:5, accepted:10}
 end
+

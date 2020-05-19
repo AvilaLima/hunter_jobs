@@ -22,6 +22,8 @@ feature 'Candidate view jobs' do
     expect(current_path).not_to eq(job_path(another_job))
   end
 
+  
+
   scenario 'and view details' do     
     #Logando como candidate
     user = create(:user)
@@ -69,7 +71,7 @@ feature 'Candidate view jobs' do
     expect(current_path).to eq root_path
   end
   
-  scenario 'and return to root page' do
+  scenario 'and return to jobs page' do
     #Logando como candidate
     user = create(:user)
     profile = create(:profile,email: user.email)
@@ -98,5 +100,24 @@ feature 'Candidate view jobs' do
     visit jobs_path
 
     expect(page).not_to have_link('Vagas disponíveis')
+  end
+end
+
+
+feature 'Candidate not view a job closed' do
+  scenario 'successfully' do
+    user = create(:user, email:"candidate@teste.com.br", role:0)
+    profile = create(:profile,email: user.email)
+    login_as user, scope: :user
+
+    job = create(:job, email: user.email, status: 5)
+
+    another_job = create(:job, title: 'Outra vaga', email: user.email)
+
+    visit root_path
+    click_on 'Vagas'  
+
+    expect(page).to have_content(another_job.title)
+    expect(page).not_to have_content(job.title)
   end
 end

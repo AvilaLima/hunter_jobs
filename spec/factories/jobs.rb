@@ -7,6 +7,7 @@ FactoryBot.define do
     date_limit { "19/09/2099" }
     location { "São Paulo" }
     email { "teste@teste.com.br"}
+    status { 0 }
     level_job
   end
 end

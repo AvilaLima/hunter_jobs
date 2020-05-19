@@ -4,8 +4,11 @@ class ApplyJobsController < ApplicationController
     @job = Job.find(params[:job_id])
     @profile = Profile.find_by(email: current_user.email)    
     if ApplyJob.exists?(profile: @profile, job: @job)
-      flash[:notice] = 'Você já se candidatou a essa vaga, boa sorte.'      
-      redirect_to jobs_path
+      @apply_job = ApplyJob.find_by(profile: @profile)
+      if @apply_job.pending?
+        flash[:notice] = 'Você já se candidatou a essa vaga, boa sorte.'      
+        redirect_to jobs_path
+      end
     else
       @apply_job  = ApplyJob.new
     end
@@ -24,4 +27,20 @@ class ApplyJobsController < ApplicationController
       render :new
     end
   end
+
+  def send_reject 
+    @apply_job = ApplyJob.find(job_id:params[:job_id])
+    if @apply_job.update(params.require(:apply_job).permit(:feedback_hunter))
+      flash[:notice]= 'Candidato foi removido com sucesso'
+      redirect_to jobs_path
+    else
+      render :send_reject
+    end
+  end   
+  
+  def send_reject
+    @apply_job = ApplyJob.find(params[:job_id])
+    byebug
+  end
+
 end

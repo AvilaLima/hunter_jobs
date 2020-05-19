@@ -26,9 +26,14 @@ pt-BR:
         date_limit: Data Limite
         location: Local
         level_job_id: Nível
+        job/status:
+          open: Em aberto
+          closed: Encerrada
+          accepted: Aceito
       apply_job:
         cover_letter: Carta de Apresentação
         feedback_hunter: Feedback
         apply_job/status:
-          open: Em aberto
-          closed: Encerrada
+          pending: Em análise
+          denied: Negado
+          accepted: Aceito

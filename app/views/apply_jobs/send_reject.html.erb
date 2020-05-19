@@ -1,0 +1,13 @@
+<% if @apply_job.errors.any? %>
+  <ul>
+    <% @apply_job.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: [@job,@apply_job], url: reject_job_apply_jobs_path,
+ local: true do |f| %>
+  <%= f.label :feedback_headhunter %>
+  <%= f.text_field :feedback_headhunter %>
+  <%= f.submit 'Enviar' %>
+<% end  %>

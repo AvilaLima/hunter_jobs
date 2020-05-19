@@ -4,11 +4,16 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users
 
-  resources :profiles, only: %i[index show new create edit update]
-  resources :jobs, only: %i[index show new create]do
-    get 'search', on: :collection    
-    resources :apply_jobs, only: %i[new create]
+  resources :profiles, only: %i[index show new create edit update] 
+  
+  resources :jobs, only: %i[index show new create] do
+    get 'search', on: :collection
+    get 'myjobs', on: :collection
+    get 'close', on: :member
+    resources :apply_jobs, only: %i[new create] do
+      get 'send_reject', on: :member      
+      post 'reject', on: :member      
+    end
   end
-
 
 end
