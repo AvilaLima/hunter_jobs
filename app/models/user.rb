@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :jobs
+  has_many :comments
   enum role: {candidate:0, headhunter: 5}
 
   #rental.candidate?

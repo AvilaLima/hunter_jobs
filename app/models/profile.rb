@@ -1,8 +1,9 @@
 class Profile < ApplicationRecord
   has_one_attached:avatar
-  has_one :user
+  belongs_to :user
   has_many :apply_jobs
   has_many :jobs, through: :apply_jobs
+  has_many :comments
 
 
   validates :name, uniqueness: true

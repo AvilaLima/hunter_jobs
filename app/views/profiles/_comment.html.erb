@@ -1,0 +1,10 @@
+<ul>
+    <% comments.each do |c|%>
+        <dl>
+          <dt>Commentário:</dt>
+          <dd><%= c.message %></dd>
+          <dt>Data do comentário</dt>
+          <dd><%= l c.created_at %></dd>
+        </dl>
+    <%end%> 
+</ul>

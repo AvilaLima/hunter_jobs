@@ -1,0 +1,6 @@
+<%= form_with model: @comment, url: comments_path, local: true do |f| %>
+  <%= f.hidden_field :profile_id, value: @profile.id %>
+  <%= f.label :message %>
+  <%= f.text_field :message %>
+  <%= f.submit 'Enviar' %>
+<% end  %>

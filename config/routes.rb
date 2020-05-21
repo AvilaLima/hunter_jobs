@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'favorite', on: :member
   end
   
+  resources :comments, only: %i[new create index]
+  
   resources :jobs, only: %i[index show new create] do
     get 'search', on: :collection
     get 'myjobs', on: :collection

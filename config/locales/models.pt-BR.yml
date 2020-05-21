@@ -7,6 +7,7 @@ pt-BR:
       level_job: Nível da Vaga
       job: Vaga
       apply_job: Candidatar-se
+      comment: Comentário
     attributes:
       profile:
         name: Nome Completo
@@ -37,3 +38,5 @@ pt-BR:
           pending: Em análise
           denied: Negado
           accepted: Aceito
+      comment:
+        message: Comentário

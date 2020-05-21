@@ -21,16 +21,17 @@ describe Job, type: :model do
 
   context '#uniqueness' do
     it 'must be unique' do
+      user = create(:user)
       Profile.create!(name: 'John Doe Doe',social_name:'Doe John',
         birth_date: '28/02/1990',
         formation:'Análise e Desenvolvimento de Sistemas', 
         summary: 'O resumo é SIM',experience: 'A minha experiência é...',
-        favorite: 0)
+        favorite: 0, user: user)
       profile =  Profile.new(name: 'John Doe Doe',social_name:'Doe John',
         birth_date: '28/02/1990',
         formation:'Análise e Desenvolvimento de Sistemas', 
         summary: 'O resumo é SIM',experience: 'A minha experiência é...',
-        favorite: 0)
+        favorite: 0, user: user)
       profile.valid?
       expect(profile.errors[:name]).to include('já está em uso')
     end 

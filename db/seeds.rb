@@ -37,6 +37,7 @@ profile_candidate = Profile.create(name: 'John Doe Doe',
                     summary: 'O resumo é SIM',
                     experience: 'A minha experiência é...',
                     favorite: 0,
+                    user: candidate,
                     email: candidate.email)
 
 
@@ -47,6 +48,7 @@ profile_a_candidate = Profile.create(name: 'Another John',
                     summary: 'O resumo é SIM',
                     experience: 'A minha experiência é...',
                     favorite: 0,
+                    user: a_candidate,
                     email: a_candidate.email)
 
 apply_job= ApplyJob.create(job: job_headhunter, profile:profile_candidate,
@@ -56,3 +58,8 @@ apply_job= ApplyJob.create(job: job_headhunter, profile:profile_candidate,
 ApplyJob.create(job: job_headhunter, profile:profile_a_candidate,
   cover_letter:'Carta de apresentação',
   feedback_headhunter: 'Feedback do hunter')
+
+comentario_headhunter = Comment.create(
+                          message:'comentário do headhunter lima@gmail.com', 
+                          user: headhunter,
+                          profile: profile_candidate)

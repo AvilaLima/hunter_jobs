@@ -4,6 +4,10 @@ class ProfilesController < ApplicationController
 
   def show 
     @profile = Profile.find(params[:id])
+    if current_user.headhunter?
+      @profile.comments = Comment.where(profile:@profile,user:current_user) 
+      @comment = Comment.new(profile:@profile,user:current_user)
+    end
   end
 
   def favorite 
@@ -34,6 +38,7 @@ class ProfilesController < ApplicationController
   def create  
     @profile = Profile.new(profile_params)
     @profile.email = current_user.email
+    @profile.user = current_user
     if @profile.save
       flash[:notice] = 'Perfil criado com sucesso'
       redirect_to @profile
@@ -48,6 +53,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
+    @profile.user = current_user
     if @profile.update(profile_params)
       flash[:notice]= 'Perfil atualizado com sucesso'
       redirect_to @profile
